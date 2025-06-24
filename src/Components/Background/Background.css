@@ -1,0 +1,52 @@
+.background-items{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+}
+.donut{
+    width: 280px;
+right: 5%;
+bottom: 1px;
+animation: jump 8s linear infinite;
+}
+.chips1{
+    width: 200px;
+    animation: jump 8s linear infinite;
+top: 10%;
+    right: 3%;
+}
+
+.chips2{
+    width: 200px;
+    animation: jump 8s linear infinite ;
+    left: 2%;
+    top: 10%;
+}
+.snikers{
+    width: 400px;
+    animation: jump 8s linear infinite;
+    left: 1%;
+bottom: -8%;
+}
+
+.ferrero{
+    width: 200px;
+    animation: jump 8s linear infinite ;
+    bottom: 25%;
+    left: 45%;
+}
+
+@keyframes jump{
+    0%{
+transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0);
+            }
+}

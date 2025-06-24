@@ -1,0 +1,23 @@
+.all-products{
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+    color: #fff;
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: nowrap;
+    text-wrap: nowrap;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.5rem;
+    width: max-content;
+
+}
+
+.all-products:hover svg{
+    transform: translateX(-12px);
+}
+.all-products > svg{
+   font-size: 2.5rem;
+   transition: all 300ms linear;
+}

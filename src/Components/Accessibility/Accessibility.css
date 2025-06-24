@@ -1,0 +1,49 @@
+.accessibility-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.accessibility-declaration {
+    position: relative;
+    max-width: 700px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .accessibility-declaration h1 {
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .accessibility-declaration ul {
+    padding-right: 1.5rem;
+    list-style: square;
+  }
+  
+  .accessibility-declaration a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #d33;
+  }
+  

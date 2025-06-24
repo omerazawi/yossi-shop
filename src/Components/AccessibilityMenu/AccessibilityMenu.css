@@ -1,0 +1,64 @@
+.accessibility-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  direction: rtl;
+}
+
+.accessibility-toggle {
+  font-size: 24px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.accessibility-panel {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin-top: 10px;
+  width: 220px;
+}
+
+.accessibility-panel button {
+  display: block;
+  margin: 0.5rem 0;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.accessibility-panel a {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  color: #007bff;
+}
+
+/* Utility classes */
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.highlight-links a {
+  text-decoration: underline !important;
+  background-color: yellow;
+  color: black;
+}
+
+.hide-images img {
+  display: none !important;
+}
+
+.spacing {
+  letter-spacing: 2px;
+  word-spacing: 4px;
+}

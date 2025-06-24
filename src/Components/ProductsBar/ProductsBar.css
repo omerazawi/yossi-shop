@@ -1,0 +1,94 @@
+.products-bar{
+  position: relative;
+    width: 100%;
+   height: max-content;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.products-bar-view:hover .scroll-product-btn{
+  opacity: 1;
+}
+
+.products-bar-title{
+  width: max-content;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.products-bar-title > h1{
+border-bottom: 2px solid palevioletred;
+}
+
+
+.products-bar-view{
+  position: relative;
+  width: 100%;
+  height: 100%;
+    display: flex;
+    align-items: center;
+text-align: center;
+transition: all 300ms linear;
+  }
+  
+  .views{
+    display: flex;
+    width: 100%;
+    align-items: center;
+z-index: 2;
+
+  }
+  
+  .views-scroling{
+    overflow-x: auto;
+   width: 100%;
+   height: max-content;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.views-scroling::-webkit-scrollbar {
+    display: none;
+  }
+
+.scroll-product-btn {
+position: absolute;
+    display: flex;
+    align-items: center;
+   height: 50%;
+   background: #FF69B4;
+   opacity: 0;
+   margin: 0 6px;
+   border-radius: 8px;
+    z-index: 10;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 2.2rem;
+  transition: opacity 300ms linear;
+  }
+
+  .scroll-product-btn:hover{
+ opacity: 1;
+  }
+  
+
+  .left-product-btn {
+    left: 0;
+  }
+  
+  .right-product-btn {
+    right: 0;
+  }
+
+  .all-product-btn-bar{
+    position: absolute;
+    top: 1rem;
+    left: 10%;
+    transition: all 300ms linear;
+  }

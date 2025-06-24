@@ -1,0 +1,25 @@
+.favorites-container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.favorites-products{
+    max-width: 90%;
+    padding: 4rem 1rem;
+    display: flex;
+    align-items: center;
+text-align: center;
+justify-content: center;
+gap: 20px;
+}
+
+.favorites-container h2{
+    font-size: 2.2rem;
+    border-bottom: 2px solid red;
+    margin-top: 20px;
+}

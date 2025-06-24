@@ -1,0 +1,139 @@
+.search {
+  max-width: 40rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.search-icon-container{
+  position: relative;
+  font-size: 20px;
+  cursor: pointer;
+  background: #fff;
+  display: flex;
+  padding: 0.7rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px 3px;
+  transition: all 2s ease-in-out;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#search-bar-input {
+  width: 100%;
+  padding-right: 40px; /* מקום לאיקס */
+}
+
+.clear-button {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-size: 14px;
+}
+
+
+.search-icon-container:hover {
+  background: linear-gradient(135deg, #ff69b4e6 0%, #ff1491d9 100%);
+}
+
+
+.search-bar {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: width 0.6s ease, opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.search-bar.open {
+  width: 400px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#search-icon{
+  display: none;
+  transition: max-width 800ms linear;
+
+}
+
+#search-icon:checked ~ .search-bar{
+ width: 100%;
+opacity: 1;
+pointer-events: auto;
+}
+
+
+
+ #search-bar-input {
+  width: 100%;
+  min-width: 15rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  direction: rtl;
+  background-color: #fff;
+  color: #333;
+  
+}
+
+#search-bar-input::placeholder {
+  color: #999;
+  font-size: 1rem;
+}
+
+#search-bar-input:focus {
+  border: 1px solid;
+
+}
+
+.search-submit-button {
+  display: flex;
+  padding: 0.4rem 1rem;
+  align-items: center;
+  justify-content: center;
+  color: #ff1493;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.6s ease;
+gap: 0.5rem;
+}
+
+.search-submit-button:hover svg {
+transform: translateX(-6px);
+}
+
+.search-submit-button > svg{
+  font-size: 1.2rem;
+  transition: all 0.5s ease;
+}
+
+
+/* מובייל */
+@media (max-width: 768px) {
+  .search input {
+    width: 85%;
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+}

@@ -1,0 +1,80 @@
+.status-container {
+  max-width: 600px;
+  height: 400px;
+  margin: 50px auto;
+  padding: 32px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  direction: rtl;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.status-title {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.status-message {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.status-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.success {
+  color: #4CAF50;
+}
+
+.cancel {
+  color: #f44336;
+}
+
+.status-container > button{
+      width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+
+.status-container > button:hover{
+
+      transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+
+
+@media (max-width: 480px) {
+  .status-container {
+    padding: 20px;
+  }
+
+  .status-title {
+    font-size: 1.5rem;
+  }
+
+  .status-message {
+    font-size: 1rem;
+  }
+
+  .status-icon {
+    font-size: 2.5rem;
+  }
+}
