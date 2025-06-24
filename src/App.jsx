@@ -17,6 +17,8 @@ import Cancel from './Pages/Cancel-Succses/Cancel';
 import LoadingPage from './Components/LoadingPage/LoadingPage';
 import ErrorMessage from './Components/Message/ErrorMessage';
 import { GlobalContext } from './Contexts/GlobalContext';
+import Register from './Pages/Auth/Register';
+import Login from './Pages/Auth/Login';
 
 function App() {
   const { isLoading, errorMessage } = useContext(GlobalContext);
@@ -30,6 +32,8 @@ function App() {
       <ShoppingCart />
       <AccessibilityMenu />
       <Routes>
+        <Route path='/Register' element={<Register />} />
+        <Route path='/Login' element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
@@ -39,6 +43,7 @@ function App() {
         <Route path="/cancel" element={<Cancel />} />
         <Route path='/my-orders' element={<MyOrders />} />
         <Route path='/checkout' element={<Checkout />} />
+  
       </Routes>
       <Footer />
     </Router>
