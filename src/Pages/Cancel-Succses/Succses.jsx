@@ -1,39 +1,20 @@
-import React, { useContext, useEffect } from 'react';
-import './PaymentStatus.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { ProductsContext } from '../../Contexts/ProductContext';
+import { useEffect }   from "react";
+import { useNavigate } from "react-router-dom";
+import api             from "../../api";
 
-const Success = () => {
-  const {setCartItems} = useContext(ProductsContext);
-  const navigate = useNavigate();
+export default function Success() {
+  const nav = useNavigate();
 
   useEffect(() => {
-    const orderData = localStorage.getItem('orderData');
+    const data = localStorage.getItem("orderData");
+    if (!data) return nav("/");
+    api.post("/orders", JSON.parse(data))
+       .then(() => {
+         localStorage.removeItem("orderData");
+         nav("/my-orders");
+       })
+       .catch(() => nav("/cancel"));
+  }, [nav]);
 
-    if (orderData) {
-      axios.post('http://localhost:3001/orders', JSON.parse(orderData))
-        .then(() => {
-          localStorage.clear();
-          setCartItems('');
-        })
-        .catch((err) => {
-          console.error('שגיאה בשמירת ההזמנה בשרת:', err);
-          navigate('/cancel');
-        });
-    } else {
-      navigate('/cancel');
-    }
-  }, [navigate]);
-
-  return (
-    <div className="status-container">
-      <div className="status-icon success">🎉</div>
-      <h2 className="status-title">התשלום בוצע בהצלחה!</h2>
-      <p className="status-message">הזמנתך נשמרה ונשלחה אליך במייל.</p>
-      <button onClick={() => navigate('/')}>לחץ כאן לחזרה</button>
-    </div>
-  );
-};
-
-export default Success;
+  return <p>מעבד הזמנה…</p>;
+}

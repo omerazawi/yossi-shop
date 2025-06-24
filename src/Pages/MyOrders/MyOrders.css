@@ -1,0 +1,20 @@
+.myorders-wrapper {
+  max-width: 800px;
+  margin: 2rem auto;
+  direction: rtl;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.myorders-wrapper h2 {
+  margin-top: 1.5rem;
+  color: #003566;
+}
+
+.order-card {
+  border: 1px solid #d6d6d6;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  background: #fafafa;
+  box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}

@@ -1,41 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import api                      from "../../api";
+import "./MyOrders.css";
 
-const MyOrders = () => {
-  const [orders, setOrders] = useState([]);
+export default function MyOrders() {
+  const [active, setActive] = useState([]);
+  const [done,   setDone]   = useState([]);
 
   useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const res = await axios.get('http://localhost:5000/api/orders/my');
-        setOrders(res.data);
-      } catch (error) {
-        console.error('שגיאה בקבלת ההזמנות', error);
-      }
-    };
-
-    fetchOrders();
+    api.get("/orders/my-orders").then(({ data }) => {
+      setActive(data.filter(o => ["ממתינה", "שולם"].includes(o.status)));
+      setDone  (data.filter(o => ["נשלחה", "בוטלה"].includes(o.status)));
+    });
   }, []);
 
-  return (
-    <div>
-      <h2>ההזמנות שלי</h2>
-      {orders.map((order) => (
-        <div key={order._id}>
-          <p>כתובת: {order.address}</p>
-          <p>סה״כ לתשלום: ₪{order.totalPrice}</p>
-          <ul>
-            {order.products.map((item, index) => (
-              <li key={index}>
-                {item.name} - כמות: {item.quantity}
-              </li>
-            ))}
-          </ul>
-          <hr />
-        </div>
-      ))}
+  const Card = ({ o }) => (
+    <div className="order-card">
+      <p><strong>מס׳:</strong> {o.orderId}</p>
+      <p><strong>תאריך:</strong> {new Date(o.createdAt).toLocaleString("he-IL")}</p>
+      <p><strong>סה״כ:</strong> ₪{o.total.toFixed(2)}</p>
+      <p><strong>סטטוס:</strong> {o.status}</p>
     </div>
   );
-};
 
-export default MyOrders;
+  return (
+    <div className="myorders-wrapper">
+      <h2>הזמנות בטיפול</h2>
+      {active.length ? active.map(o => <Card o={o} key={o._id} />)
+                     : <p>אין הזמנות פעילות.</p>}
+
+      <h2>היסטוריית הזמנות</h2>
+      {done.length ? done.map(o => <Card o={o} key={o._id} />)
+                   : <p>אין הזמנות קודמות.</p>}
+    </div>
+  );
+}
