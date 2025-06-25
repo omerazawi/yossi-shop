@@ -1,12 +1,17 @@
 .myorders-wrapper {
-  max-width: 800px;
-  margin: 2rem auto;
+  width: 100%;
+  height: 100vh;
+padding: 2rem;
+display: flex;
+flex-direction: column;
+gap: 2rem;
+align-items: center;
+justify-content: center;
   direction: rtl;
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .myorders-wrapper h2 {
-  margin-top: 1.5rem;
   color: #003566;
 }
 
@@ -17,4 +22,13 @@
   margin-bottom: 1rem;
   background: #fafafa;
   box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+
+.to-login-btn > button{
+        padding: 0.5rem 1.2rem;
+              background: #3178ff;
+              color: #fff;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
 }

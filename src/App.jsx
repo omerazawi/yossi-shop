@@ -19,6 +19,7 @@ import ErrorMessage from './Components/Message/ErrorMessage';
 import { GlobalContext } from './Contexts/GlobalContext';
 import Register from './Pages/Auth/Register';
 import Login from './Pages/Auth/Login';
+import Content from './Components/Content/Content';
 
 function App() {
   const { isLoading, errorMessage } = useContext(GlobalContext);
@@ -31,6 +32,7 @@ function App() {
       <NavBar />
       <ShoppingCart />
       <AccessibilityMenu />
+      <Content />
       <Routes>
         <Route path='/Register' element={<Register />} />
         <Route path='/Login' element={<Login />} />

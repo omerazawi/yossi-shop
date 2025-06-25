@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate }   from "react-router-dom";
-import api from "../../api";
+import api                            from "../../api";
 import "./Checkout.css";
 
 const Checkout = () => {
@@ -12,28 +12,27 @@ const Checkout = () => {
   const [user , setUser ] = useState({ fullName: "", email: "" });
   const [form , setForm ] = useState({ phone: "", address: "" });
   const [err  , setErr  ] = useState({});
-
   const [merge , setMerge ] = useState(false);
   const [mergeId, setMergeId] = useState(null);
 
-  /* ---------- פרופיל ---------- */
+  /* --- משיכת פרופיל --- */
   useEffect(() => {
-    if (!token) return navigate("/login");
+    if (!token) { navigate("/login"); return; }
     api.get("/auth/profile")
        .then(({ data }) => setUser({ fullName: data.fullName, email: data.email }))
        .catch(() => navigate("/login"));
   }, [token, navigate]);
 
-  /* ---------- ולידציה ---------- */
+  /* --- ולידציה --- */
   const validate = () => {
     const e = {};
-    if (!/^(?:0|\+972)[5][0-9]{8}$/.test(form.phone))   e.phone   = "טלפון לא תקין";
-    if (!/^.+\s\d+$/.test(form.address))                e.address = "כתובת לא תקינה";
+    if (!/^(?:0|\+972)[5][0-9]{8}$/.test(form.phone)) e.phone = "טלפון לא תקין";
+    if (!/^.+\s\d+$/.test(form.address)) e.address = "כתובת לא תקינה";
     setErr(e);
     return !Object.keys(e).length;
   };
 
-  /* ---------- חישובי מחיר (פשוט) ---------- */
+  /* --- מחיר --- */
   const items = cartItems.map((it) => ({
     productId: it._id,
     name: it.name,
@@ -42,15 +41,14 @@ const Checkout = () => {
   }));
   const total = items.reduce((s, it) => s + it.finalPrice * it.quantity, 0).toFixed(2);
 
-  /* ---------- בדיקת הזמנה קיימת ---------- */
+  /* --- הזמנה קיימת --- */
   const checkExisting = async () => {
     const { data } = await api.post("/orders/check-existing", { phone: form.phone });
-    if (data?.existingOrderId) {
-      setMerge(true); setMergeId(data.existingOrderId);
-    } else submit(false);
+    if (data?.existingOrderId) { setMerge(true); setMergeId(data.existingOrderId); }
+    else submit(false);
   };
 
-  /* ---------- Submit ---------- */
+  /* --- שליחה --- */
   const submit = async (attach) => {
     const body = {
       cartItems: items,
@@ -72,7 +70,7 @@ const Checkout = () => {
     await checkExisting();
   };
 
-  /* ---------- UI ---------- */
+  /* --- UI --- */
   return (
     <div className="checkout-container">
       <h2 className="checkout-title">סיכום הזמנה</h2>
@@ -111,7 +109,7 @@ const Checkout = () => {
 
       {merge ? (
         <div className="merge-prompt">
-          <p>נמצאה הזמנה קודמת עם אותו טלפון. לצרף?</p>
+          <p>הזמנה קודמת נמצאה. לצרף?</p>
           <button onClick={() => submit(true)}>כן</button>
           <button onClick={() => submit(false)}>לא</button>
         </div>
@@ -123,5 +121,4 @@ const Checkout = () => {
     </div>
   );
 };
-
 export default Checkout;
